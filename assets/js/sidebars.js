@@ -1,4 +1,9 @@
 /* global bootstrap: false */
+
+
+setInterval('refreshPage()', 1000);
+
+
 (function () {
   'use strict'
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -9,8 +14,7 @@
 
 function sidebar(){
   var sidebar = document.getElementById("sidebar");
-  var mediaQuery = window.matchMedia("(max-width: 768px)")
-  console.log(sidebar)
+  
   if (sidebar.getAttribute("aria-expanded") == "false"){
     sidebar.style.display = "block";
     sidebar.style.width = "33.334%";
@@ -26,9 +30,44 @@ function sidebar(){
   }
 }
 
+function homepage(){
+  var fraindesPage = document.getElementById("fraindes-page");
+  var messagesPage = document.getElementById("messages-page");
+  var fraindesCol = document.getElementById("fraindes-col");
+  var messagesCol = document.getElementById("messages-col");
+  var mediaQuery = window.matchMedia("(max-width: 768px)")
+  console.log(mediaQuery.matches)
+
+  if (mediaQuery.matches) {
+  
+    if (fraindesPage.getAttribute("aria-expanded") == "false") {
+      fraindesPage.style.display = "none";
+      messagesPage.style.display = "flex";
+
+      fraindesCol.style.display = "none";
+      messagesCol.style.display = "flex";
+      fraindesPage.setAttribute("aria-expanded", "true");
+
+    }else{
+      messagesCol.style.display = "none";
+      fraindesPage.style.display = "flex";
+
+      messagesPage.style.display = "none";
+      fraindesCol.style.display = "flex";
+      fraindesPage.setAttribute("aria-expanded", "false");
+
+    }
+  
+  }
+
+}
+
+
 function myFunction(mediaQuery) {
   var sidebar = document.getElementById("sidebar");
   sidebar.removeAttribute("style");
+
+
   setTimeout(function () {
     sidebar.style.display = "none";
   }, 300);

@@ -18226,6 +18226,18 @@ textarea.form-control-lg {
   z-index: 3;
 }
 
+.z-index-4 {
+  z-index: 4;
+}
+
+.z-index-5 {
+  z-index: 5;
+}
+
+.z-index-6 {
+  z-index: 6;
+}
+
 .position-sticky {
   position: sticky;
 }
@@ -18241,10 +18253,14 @@ body {
   /* Prevent scroll on narrow devices */
 }
 
+header {
+  height: 3.2rem;
+}
+
 #sidebar {
-  z-index: 2;
+  z-index: 3;
   position: fixed;
-  margin-top: 3.5rem;
+  margin-top: 1rem;
   max-width: 100%;
   height: 100%;
   overflow-y: auto;
@@ -18342,6 +18358,15 @@ body {
   line-height: 1.25;
 }
 
+@media (max-width: 768px) {
+  nav .fraindes-page {
+    display: flex;
+  }
+  nav .messages-page {
+    display: none;
+  }
+}
+
 .main-section {
   position: fixed;
   width: 100%;
@@ -18359,12 +18384,27 @@ body {
   left: 0;
   overflow-y: auto;
 }
+@media (max-width: 768px) {
+  .main-section .fraindes-col {
+    display: flex;
+  }
+}
 .main-section .messages-col {
   height: 100%;
   background-color: #fff;
   position: fixed !important;
   right: 0;
   overflow-y: auto;
+}
+.main-section .messages-col .list-group a {
+  margin: 1rem;
+  box-shadow: 1rem;
+  border: none;
+}
+@media (max-width: 768px) {
+  .main-section .messages-col {
+    display: none;
+  }
 }
 @media (max-width: 768px) {
   .main-section {
